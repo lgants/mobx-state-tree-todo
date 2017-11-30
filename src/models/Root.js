@@ -30,11 +30,34 @@ const RootStore = types.model({
   return {addTodo}
 });
 
+
+// users is required because it's not marked as optional
+// MST supports references out of the box (i.e. that makes it possible to define a "user" attribute on the Todo model that references to a User) - requires adding an identifier to model
+// the value of that attribute will be the identifier of the User in the snapshot, it will resolve to the correct instance of the User model when rendering and it's possible to provide either the User model instance or the User identifier when setting
 const store = RootStore.create({
-  users: { } // users is required here because it's not marked as optional
+  "users": {
+    "1": {
+      id: "1",
+      name: "mweststrate"
+    },
+    "2": {
+      id: "2",
+      name: "mattiamanzati"
+    },
+    "3": {
+      id: "3",
+      name: "johndoe"
+    }
+  },
+  "todos": {
+    "1": {
+      "name": "Eat a cake",
+      "done": true
+    }
+  }
 })
 
-// Note that computed properties won't appear in snapshots
+// note that computed properties won't appear in snapshots
 onSnapshot(store, snapshot => {
     if (currentFrame === states.length - 1) {
         currentFrame++
