@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree"
+import Todo from './Todo'
 
 const User = types.model({
   name: ""
