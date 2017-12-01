@@ -6,7 +6,6 @@ import Todo from "./Todo";
 const User = types.model({
     id: types.identifier(types.string),
     name: types.optional(types.string, ""),
-    user: types.maybe(types.reference(types.late(() => User)))
 }).actions(self => {
   function addTodo(id, name) {
     self.todos.set(id, Todo.create({ name }))

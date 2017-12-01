@@ -16,7 +16,11 @@ const App = inject("store")(observer( props =>
       onClick={e => props.store.addTodo(randomId(), 'New Task')}
       default={true}
     />
-    {props.store.todos.values().map(todo => <Todo todo={todo} />)}
+    {
+      props.store.todos.values().map((todo, idx) => {
+        return <Todo key={idx} store={props.store} todo={todo} />
+      })
+    }
   </div>
 ))
 

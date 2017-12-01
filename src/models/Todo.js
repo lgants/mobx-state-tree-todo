@@ -12,6 +12,7 @@ const Todo = types.model({
   }
 
   function setUser(user) {
+    // reference value can be set by providing either the identifier or a model instance
     if (user === "") {
       // set user to null when selected value is empty
       self.user = null
@@ -32,6 +33,6 @@ const Todo = types.model({
 //   done: types.optional(types.boolean, false)
 // })
 
-const eat = Todo.create()
+// const eat = Todo.create()
 
 export default Todo;
