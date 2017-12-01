@@ -5,7 +5,7 @@ import {
   TableBody,
   TableHeader,
   TableHeaderColumn,
-  TableRow
+  TableRow,
 } from 'material-ui/Table';
 import TodoRow from './TodoRow';
 

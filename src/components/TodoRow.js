@@ -9,7 +9,7 @@ import CheckDone from './CheckDone';
 
 const TodoRow = observer(props => {
   return (
-    <TableRow>
+    <TableRow style={{borderBottom: "0px"}}>
       <TableRowColumn>
         <CheckDone checked={props.todo.done} toggle={props.todo.toggle}/>
       </TableRowColumn>

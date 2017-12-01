@@ -4,7 +4,6 @@ import { RaisedButton } from 'material-ui';
 // import Todo from './Todo';
 import TodoCounter from './TodoCounter';
 import TodoTable from './TodoTable';
-import '../styles/App.css';
 
 const randomId = () => Math.floor(Math.random() * 1000).toString(36);
 
@@ -16,7 +15,9 @@ const App = inject("store")(observer( props =>
       label="Add Task"
       onClick={e => props.store.addTodo(randomId(), 'New Task')}
       default={true}
+      fullWidth={true}
     />
+    <br/>
     <TodoTable store={props.store}/>
   </div>
 ))

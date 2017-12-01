@@ -1,37 +1,13 @@
-import React, { Component } from 'react';
-import { getSnapshot } from "mobx-state-tree"
+import React from 'react';
 import { Checkbox } from 'material-ui';
 
-// const styles = {
-//   block: {
-//     maxWidth: 250,
-//   },
-//   checkbox: {
-//     marginBottom: 16,
-//   },
-// };
-
-class CheckDone extends Component {
-  // state = {
-  //   checked: false,
-  // }
-  //
-  // updateCheck() {
-  //   this.setState((oldState) => {
-  //     return {
-  //       checked: !oldState.checked,
-  //     };
-  //   });
-  // }
-
-  render() {
-    return (
-      <Checkbox
-        checked={this.props.checked}
-        onCheck={e => this.props.todo.toggle()}
-      />
-    )
-  }
+const CheckDone = props => {
+  return (
+    <Checkbox
+      checked={props.checked}
+      onCheck={e => props.toggle()}
+    />
+  )
 }
 
 export default CheckDone;
