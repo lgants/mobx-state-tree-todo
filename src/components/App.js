@@ -1,8 +1,9 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { RaisedButton } from 'material-ui';
-import Todo from './Todo';
+// import Todo from './Todo';
 import TodoCounter from './TodoCounter';
+import TodoTable from './TodoTable';
 import '../styles/App.css';
 
 const randomId = () => Math.floor(Math.random() * 1000).toString(36);
@@ -16,11 +17,7 @@ const App = inject("store")(observer( props =>
       onClick={e => props.store.addTodo(randomId(), 'New Task')}
       default={true}
     />
-    {
-      props.store.todos.values().map((todo, idx) => {
-        return <Todo key={idx} store={props.store} todo={todo} />
-      })
-    }
+    <TodoTable store={props.store}/>
   </div>
 ))
 
