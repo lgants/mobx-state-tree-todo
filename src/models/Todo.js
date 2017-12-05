@@ -1,6 +1,8 @@
 import { types } from "mobx-state-tree"
 import User from "./User";
 
+// use types.late(() => User) instead of just User to postpone the resolution of the User type by hoisting it (i.e. type) and defering its evaluation - avoids circular references
+// use types.maybe(...) to allow the user property to be null and be initialized as null since assignee for the Todo could be omitted
 const Todo = types.model({
   name: types.optional(types.string, ""),
   done: types.optional(types.boolean, false),
